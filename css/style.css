@@ -278,6 +278,10 @@ body {
   cursor: pointer;
 }
 
+.contact .row .btn:hover {
+  background-color: #956703;
+}
+
 footer {
   background-color: var(--primary);
   text-align: center;
