@@ -84,12 +84,173 @@ body {
   display: none;
 }
 
+/* Navbar search form */
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: #fff;
+  width: 30rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: right;
+  transition: 0.3s;
+}
+
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--bg);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--bg);
+  margin-right: 1.5rem;
+}
+
+/* shopping cart */
+#shopping-cart-btn {
+  position: relative;
+}
+
+#shopping-cart-btn .quantity-notification {
+  display: inline-block;
+  padding: 1px 5px;
+  background-color: red;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: -10px;
+}
+
+.shopping-cart {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: 100vh;
+  width: 30rem;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  color: var(--primary);
+  transition: 0.3s;
+}
+
+.shopping-cart.active {
+  right: 0;
+}
+
+.shopping-cart .cart-item {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #333;
+}
+
+.shopping-cart img {
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.shopping-cart h3 {
+  font-size: 1.4rem;
+}
+
+.shopping-cart .item-price {
+  font-size: 1.2rem;
+}
+
+.shopping-cart .cart-item #add, 
+.shopping-cart .cart-item #remove {
+  display: inline-block;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin: 0 8px;
+  background-color: var(--bg);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+} 
+
+.shopping-cart h4 {
+  font-size: 1.6rem;
+  margin-top: -1rem;
+  text-align: center;
+
+}
+
+/* Checkout btn */
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px dashed black;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.form-container h5 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.form-container form {
+  width: 100%;
+  text-align: center;
+}
+
+.form-container label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.form-container span {
+  text-align: right;
+}
+
+.form-container input {
+  background-color: #ddd;
+  padding: 5px;
+  font-size: 1rem;
+  width: 70%;
+}
+
+.form-container .checkout-btn {
+  padding: 6px 14px;
+  background-color: royalblue;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 20px;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+
+.form-container .checkout-btn.disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url(../img/img3.jpg);
+  background-image: url(../img/menu/img3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -148,20 +309,24 @@ body {
 /* About Section */
 .about,
 .menu,
+.produk,
 .contact {
-  padding: 8rem 7% 1.4rem;
+  padding: 8rem 5% 1.4rem;
 }
 
 .about h2,
 .menu h2,
+.produk h2,
 .contact h2 {
   text-align: center;
   font-size: 2.6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .about h2 span,
+.about h3 span,
 .menu h2 span,
+.produk h2 span,
 .contact h2 span {
    color: var(--primary);
 }
@@ -202,6 +367,7 @@ body {
 }
 
 .menu p,
+.produk p,
 .contact p {
   text-align: center;
   max-width: 30rem;
@@ -231,6 +397,72 @@ body {
 .menu .row .menu-card .menu-card-title {
   margin-top: 1rem auto 0.5rem;
 }
+
+/* Produk Section */
+.produk .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.produk .produk-card {
+  text-align: center;
+  border: 2px solid #666;
+  padding: 2rem;
+}
+
+.produk .produk-ikon {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.produk .produk-ikon a {
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  margin: 0.3rem;
+  border: 2px solid #666;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.produk .produk-ikon a:hover {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.produk .produk-img {
+  padding: 1rem 0;
+}
+
+.produk .produk-img img {
+  height: 25rem; 
+}
+
+.produk .produk-konten h3 {
+  font-size: 2rem;
+}
+
+.produk .produk-stars {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: var(--primary);
+}
+
+.produk-stars .star-full {
+  fill: var(--primary);
+}
+
+.produk .produk-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+
 
 /*  Contact Section */
 .contact .row {
@@ -324,6 +556,75 @@ footer .credit a {
   font-weight: 700;
 }
 
+/* Modal Box */
+/* item detail */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba( 0, 0, 0, 0.6 );
+}
+
+.modal-container {
+  position: relative;
+  background-color: #fefefe;
+  color: var(--bg);
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid #666;
+  width: 80%;
+  animation: animateModal 0.5s;
+}
+
+/* animasi */
+@keyframes animateModal {
+  from {
+    top: -300px;
+    opacity: 0;
+  } 
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-container .close-icon {
+  position: absolute;
+  right: 1rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+} 
+
+.modal-content img {
+  height: 16rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+}
+
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 13rem;
+  background-color: var(--primary);
+  color: #fff;
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+}
+
 /* Media Queries */
 
 /* Laptop */
@@ -370,6 +671,12 @@ footer .credit a {
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.2);
   }
+
+  .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+  }
+
   .about .row {
     flex-wrap: wrap;
   }
@@ -399,6 +706,10 @@ footer .credit a {
 
   .contact .row .maps {
     height: 30rem;
+  }
+
+  .modal-content {
+    flex-wrap: wrap;
   }
 
 }
